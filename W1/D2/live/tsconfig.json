@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // it will use latest version of javascript
+    "outDir": "build", // it will create output directory with name build when we run command npx tsc which will store all converted js files
+    "module": "CommonJS" // for import export files
+  },
+  "include": ["src/*.ts", "src/*.js"]
+}
