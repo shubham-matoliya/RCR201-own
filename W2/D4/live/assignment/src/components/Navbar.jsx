@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { store } from "../redux/store";
 
 const Navbar = () => {
+  const { count } = useSelector((store) => store.cartItemManager);
   return (
     <div
       style={{
@@ -29,7 +32,7 @@ const Navbar = () => {
             : { color: "black", textDecoration: "none" }
         }
       >
-        Cart
+        Cart ({count} items)
       </NavLink>
     </div>
   );

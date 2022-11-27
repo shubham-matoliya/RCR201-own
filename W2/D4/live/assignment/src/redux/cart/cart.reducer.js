@@ -9,6 +9,7 @@ import {
 const initialCartState = {
   cartItems: JSON.parse(localStorage.getItem("temp-cartItems")) || [],
   subTotal: +localStorage.getItem("tempSubtotal") || 0,
+  count: +localStorage.getItem("itemCount") || 0
 };
 
 export const cartReducer = (state = initialCartState, { type, payload }) => {
@@ -24,11 +25,17 @@ export const cartReducer = (state = initialCartState, { type, payload }) => {
           (total, el) => total + eval(el.quantity * el.price),
           0
         );
+        let count = updatedCart.reduce(
+          (total, el) => total + el.quantity,
+          0
+        );
+        localStorage.setItem("itemCount", JSON.stringify(count));
         localStorage.setItem("tempSubtotal", JSON.stringify(subTotal));
         localStorage.setItem("temp-cartItems", JSON.stringify(updatedCart));
         return {
           cartItems: updatedCart,
           subTotal,
+          count
         };
       } else {
         const updatedCart = [...state.cartItems, { ...payload, quantity: 1 }];
@@ -36,12 +43,18 @@ export const cartReducer = (state = initialCartState, { type, payload }) => {
           (total, el) => total + eval(el.quantity * el.price),
           0
         );
+        let count = updatedCart.reduce(
+          (total, el) => total + el.quantity,
+          0
+        );
+        localStorage.setItem("itemCount", JSON.stringify(count));
         localStorage.setItem("tempSubtotal", JSON.stringify(subTotal));
         localStorage.setItem("temp-cartItems", JSON.stringify(updatedCart));
 
         return {
           cartItems: updatedCart,
           subTotal,
+          count
         };
       }
     }
@@ -53,12 +66,18 @@ export const cartReducer = (state = initialCartState, { type, payload }) => {
         (total, el) => total + eval(el.quantity * el.price),
         0
       );
+      let count = updatedCart.reduce(
+        (total, el) => total + el.quantity,
+        0
+      );
+      localStorage.setItem("itemCount", JSON.stringify(count));
       localStorage.setItem("tempSubtotal", JSON.stringify(subTotal));
       localStorage.setItem("temp-cartItems", JSON.stringify(updatedCart));
 
       return {
         cartItems: updatedCart,
         subTotal,
+        count
       };
     }
     case DECREASE_PRODUCT_QUANTITY_IN_CART: {
@@ -69,12 +88,18 @@ export const cartReducer = (state = initialCartState, { type, payload }) => {
         (total, el) => total + eval(el.quantity * el.price),
         0
       );
+      let count = updatedCart.reduce(
+        (total, el) => total + el.quantity,
+        0
+      );
+      localStorage.setItem("itemCount", JSON.stringify(count));
       localStorage.setItem("tempSubtotal", JSON.stringify(subTotal));
       localStorage.setItem("temp-cartItems", JSON.stringify(updatedCart));
 
       return {
         cartItems: updatedCart,
         subTotal,
+        count
       };
     }
     case DELETE_PRODUCT_FROM_CART: {
@@ -83,11 +108,17 @@ export const cartReducer = (state = initialCartState, { type, payload }) => {
         (total, el) => total + eval(el.quantity * el.price),
         0
       );
+      let count = updatedCart.reduce(
+        (total, el) => total + el.quantity,
+        0
+      );
+      localStorage.setItem("itemCount", JSON.stringify(count));
       localStorage.setItem("tempSubtotal", JSON.stringify(subTotal));
       localStorage.setItem("temp-cartItems", JSON.stringify(updatedCart));
       return {
         cartItems: updatedCart,
         subTotal,
+        count
       };
     }
     default: {
