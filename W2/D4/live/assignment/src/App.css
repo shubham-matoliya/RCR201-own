@@ -1,0 +1,138 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.product-container {
+  width: 95vw;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+}
+.product-card {
+  border: 1px solid lightgray;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 8px;
+}
+.product-card img {
+  width: 100%;
+}
+.product-card > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+.product-card > div:nth-child(2) button {
+  width: 90%;
+  align-self: center;
+  font-size: 20px;
+  color: white;
+  background-color: black;
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.product-card > div:nth-child(2) button:hover {
+  background-color: rgb(37, 132, 37);
+  color: white;
+  font-weight: 600;
+}
+.product-card > div:nth-child(2) h2 {
+  overflow-x: hidden;
+  width: 100%;
+  height: 60px;
+}
+.product-card > div:nth-child(2) p {
+  font-size: 24px;
+  align-self: left;
+}
+a {
+  font-size: 32px;
+  margin-top: 20px;
+}
+.cart-container {
+  width: 95vw;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+}
+.cart-container .cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+  max-height: 78vh;
+  overflow-y: scroll;
+  border-right: 1px solid gray;
+}
+.cart-container .cart-items > div {
+  width: 70%;
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  position: relative;
+  padding: 10px;
+}
+.cart-container .cart-items > div .delete {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border: none;
+  background-color: transparent;
+  color: red;
+  cursor: pointer;
+  font-size: 15px;
+}
+.cart-container .cart-items > div img {
+  width: 50%;
+}
+.cart-container .cart-items > div .quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  font-size: 20px;
+}
+.cart-container .cart-items > div button {
+  cursor: pointer;
+}
