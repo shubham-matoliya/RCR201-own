@@ -143,7 +143,7 @@ VID 1
 VID 2,3
 dependencies installed:
 npm install react-loading-skeleton
-npm install redux react-redux
+npm install redux react-redux redux-thunk
 
 1. Meet Our Team section in About Page is repeating in more than one page hence we will make its component.
 2. For Dynamically load each member of our Team component we make a reducer for it and then pass all data there. store and root-reducer files are used for reducers. included Provider in \_App.js
@@ -180,4 +180,26 @@ VID 6
 3. we made another function to render products inside featuredProducts component products are getting from store and we also used useMemo in it which act like useEffect if there is any change in its dependency then this function will execute
 4. In render product function <Link href="/p/[pid]" as={`/p/${product.id}`}></Link>
    we are making p folder for product and separate [pid] page for products detail page which will change with id of products
-5. we make class of product-tags dynamic so that one product can be in top fetured only and two products can be in top-featured and best seler category
+5. we make class of product-tags dynamic so that one product can be in top fetured only and two products can be in top-featured and best seller category
+6. we made some changes in pid file to make it dynamic as per object we have created for it in productReducer
+
+================ Till Single product page for featured products ================
+
+VID 7&8
+
+1. In this video we are making add to cart functionality fir this we have used redux thunk. We used dispatch function in FeaturedProducts.jsx to pass addtocart function in it.
+2. We've made separate folder for cart actions and made reducer for cart in reducers folder to change its quantity
+3. In cart.js page we append updated cart Items
+
+================ Till Cart Page ================
+
+VID 9
+
+1. In this video we will deploy our website as a static website on netlify. For this we wherever we used serverside props in our website will changed to static props like in pid page.
+2. We will do static export for this website.
+3. In static props function we change query to params also in static paths fallback will be true so that when site will run on server it will save the html of page which was not available statically. In this site we have only 2 dynamic path i.e. 100 and 101 hence we hard coded it
+4. also to deploy on netlify we have to change export script in package.json we have to write
+   "export" : "next build && next export"
+5. when we run this command out folder will create in which html files will generated for our project and netlify will deploy these html files easily.
+6. In netlify we have to first add our github account and then repo which we want to deploy and then in this select folder out to export when ask and write npm export and then it will get deploy.
+7. now whenever we made any change to this repo it will get updated in that deployed link.

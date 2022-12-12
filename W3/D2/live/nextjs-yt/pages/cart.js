@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProductQuantity, deleteProduct } from "../actions/cart";
@@ -120,9 +121,9 @@ export default function cart() {
               </div>
             </div>
             <div className="col-12 d-flex shopping-box">
-              <a href="checkout.html" className="ml-auto btn hvr-hover">
-                Checkout
-              </a>
+              <Link href="/checkout">
+                <a className="ml-auto btn hvr-hover">Checkout</a>
+              </Link>
             </div>
           </div>
         </div>

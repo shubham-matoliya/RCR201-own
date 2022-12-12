@@ -1,13 +1,12 @@
 {
-  "name": "ilive4coding-nextjs-ecommerce",
+  "name": "nextjs-ecommerce",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -H 0.0.0.0 -p $PORT",
+    "start": "next start",
     "start:dev": "next start",
-    "start:prod": "next start -p 80",
     "export": "next build && next export"
   },
   "dependencies": {
